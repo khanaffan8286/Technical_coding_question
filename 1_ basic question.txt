@@ -1,1 +1,171 @@
+1. Write PHP code using a while loop that prints the numbers from 1 to 5.
+
+<?php
+$num = 1;
+while($num<=5){
+    echo $num."\n";
+    $num++;
+}
+?>
+
+2. Write PHP code using a while loop that prints even numbers from 2 to 10.
+
+<?php
+$num = 2;
+while($num<=10){
+    echo $num."\n";
+    $num+=2;
+}
+?>
+
+3. Write PHP code using a while loop that prints numbers from 10 down to 1 (reverse order).
+
+<?php
+$num = 10;
+while($num>=1){
+    echo $num."\n";
+    $num--;
+}
+?>
+
+4. Write PHP code using a while loop to calculate the sum of numbers from 1 to 5 and then print the result.
+
+<?php
+$num = 1;
+$sum = 0;
+
+while($num<=5){
+    $sum = $sum+$num;
+    $num+=1;
+}
+echo $sum;
+
+?>
+
+5. Write PHP code using a while loop that prints the multiplication table of 7 from:
+
+<?php
+$num=1;
+
+while($num<=10){
+    echo "7 * ".$num. "=".($num*7) ."\n";
+    $num ++;
+}
+?>
+
+6. Write PHP code using a while loop to print only odd numbers from 1 to 15.
+
+<?php
+$num = 1;
+while($num<=15){
+    echo $num."\n";
+    $num+=2;
+}
+?>
+
+7. Write PHP code using a while loop that calculates the factorial of a number stored in a variable.
+
+<?php
+$var = 3 ;
+$fac= 1; 
+
+while($var>0){
+    $fac= $fac*$var;
+    $var--;
+}
+
+echo $fac;
+?>
+
+8. reverse the string
+
+<?php
+$name = "danish";
+echo strrev($name);
+?>
+
+9. Here is one correct solution for reversing a number using a while loop:
+
+<?php
+$num= 12345;
+$rev= 0 ;
+while($num>0){
+    $digit= $num % 10 ;
+    $rev = ($rev*10) +$digit;
+    $num =(int)($num/10);
+}
+echo $rev;
+
+?>
+
+<?php
+$str = "danish";
+$rev = "";
+
+for($i=0; isset($str[$i]);$i++){
+    
+}
+for($j=$i-1; $j>=0 ; $j--){
+    $rev .=$str[$j];
+}
+echo $rev;
+?>
+
+10. A palindrome number is a number that remains the same when reversed.
+
+<?php
+$num = 121;
+$orignal = $num;
+$rev= 0;
+
+while ($num>0){
+    $digit = $num%10;
+    $rev = ($rev*10)+$digit;
+    $num = (int)($num/10);
+}
+if ($orignal===$rev){
+    echo "it is an palindrome number";
+}
+else{
+    echo "not palindrome number";
+}
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
