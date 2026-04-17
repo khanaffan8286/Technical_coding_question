@@ -1,0 +1,5 @@
+1. If you send 1000 emails in a single request in Laravel
+ans: Sending 1000 emails synchronously in a single request is inefficient and can cause timeouts. In Laravel, we solve this using queues. 
+Instead of sending emails directly, we push them to a queue using queue() or jobs. 
+A queue worker processes them asynchronously in the background, improving performance and user experience. 
+For large datasets, we also use chunking and external mail services like SES or Mailgun to handle scalability and rate limits.
