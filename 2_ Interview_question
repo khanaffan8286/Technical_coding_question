@@ -3,3 +3,32 @@ ans: Sending 1000 emails synchronously in a single request is inefficient and ca
 Instead of sending emails directly, we push them to a queue using queue() or jobs. 
 A queue worker processes them asynchronously in the background, improving performance and user experience. 
 For large datasets, we also use chunking and external mail services like SES or Mailgun to handle scalability and rate limits.
+
+2. N+1 problem
+ans: Imagine you are building a page to display a list of Products, and each product belongs to a Category (like "Organic Serums" or "Hair Care").
+
+The E-commerce Example
+1. The N+1 Mistake (Lazy Loading)
+If you write your code like this, your database will be hit multiple times for every single product on the page.
+
+PHP
+// 1 Query to get all products
+$products = Product::all(); 
+
+foreach ($products as $product) {
+    // N Queries: This runs once for every single product in the loop
+    echo "Product: " . $product->name . " | Category: " . $product->category->name;
+}
+Database Logs would look like this:
+
+SELECT * FROM products;
+
+SELECT * FROM categories WHERE id = 1;
+
+SELECT * FROM categories WHERE id = 2;
+
+SELECT * FROM categories WHERE id = 1; (Repeat...)
+
+If you have 50 products, that is 51 queries just to show one simple list.
+
+3. 
