@@ -31,4 +31,37 @@ SELECT * FROM categories WHERE id = 1; (Repeat...)
 
 If you have 50 products, that is 51 queries just to show one simple list.
 
-3. 
+3. If an API is very slow in production
+ans: Identify the Bottleneck (Root Cause)
+
+Before fixing, I measure:
+
+Use Laravel tools:
+Laravel Debugbar (local)
+Logs (storage/logs)
+Production monitoring:
+New Relic / Datadog / server metrics
+
+👉 I check:
+
+Is it database slow?
+Is it external API slow?
+Is it heavy processing in code?
+
+database optimization 
+Use Eager Loading
+Post::with('user')->get();
+
+Avoid:
+
+Post::all(); // N+1 problem
+Add Indexes (CRITICAL)
+CREATE INDEX idx_user_email ON users(email);
+✅ Use Pagination Instead of get()
+User::paginate(20);
+✅ Use Chunking for Large Data
+User::chunk(100, function ($users) {
+    //
+});
+
+
