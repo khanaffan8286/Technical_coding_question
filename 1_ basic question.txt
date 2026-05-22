@@ -66,14 +66,14 @@ while($num<=15){
 7. Write PHP code using a while loop that calculates the factorial of a number stored in a variable.
 
 <?php
-$var = 3 ;
-$fac= 1; 
+$var = (int)readline("Enter the number");
+
+$fac = 1;
 
 while($var>0){
-    $fac= $fac*$var;
-    $var--;
+    $fac = $fac*$var;
+    $var --;
 }
-
 echo $fac;
 ?>
 
